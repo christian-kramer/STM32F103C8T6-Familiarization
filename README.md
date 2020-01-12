@@ -98,7 +98,13 @@ Let's see how it shows up.
 
 [Gamepad Demo](https://i.imgur.com/ZbpbU08.mp4)
 
-Awesome! Both "Steering" and "Button 1" work great! Let's try it in an actual game.
+Awesome! Both "Steering" and "Button 1" work great!
+
+![Interface](https://i.imgur.com/KuqTbTO.jpg)
+
+Here's the interface I came up with, for the button and steering axis. The 1µF/100nF capacitors and resistor on the potentiometer help to filter the noise going to the ADC.
+
+Let's try it in an actual game.
 
 [Driving a truck with the STM32](https://i.imgur.com/QYTzxKI.mp4)
 
