@@ -4796,7 +4796,7 @@ OUTPUT(USB Custom HID.elf elf32-littlearm)
  .debug_line    0x000000000000c028      0x9cf Src/usbd_desc.o
  .debug_line    0x000000000000c9f7       0x7f Startup/startup_stm32f103c8tx.o
 
-.debug_str      0x0000000000000000    0x7245e
+.debug_str      0x0000000000000000    0x72460
  .debug_str     0x0000000000000000    0x6a419 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
                                       0x6a75d (size before relaxing)
  .debug_str     0x000000000006a419      0x66c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.o
@@ -4839,9 +4839,9 @@ OUTPUT(USB Custom HID.elf elf32-littlearm)
                                       0x6fc53 (size before relaxing)
  .debug_str     0x0000000000072142       0x7e Src/usbd_custom_hid_if.o
                                       0x6f368 (size before relaxing)
- .debug_str     0x00000000000721c0      0x26d Src/usbd_desc.o
-                                      0x6f0b1 (size before relaxing)
- .debug_str     0x000000000007242d       0x31 Startup/startup_stm32f103c8tx.o
+ .debug_str     0x00000000000721c0      0x26f Src/usbd_desc.o
+                                      0x6f0b3 (size before relaxing)
+ .debug_str     0x000000000007242f       0x31 Startup/startup_stm32f103c8tx.o
                                          0x90 (size before relaxing)
 
 .comment        0x0000000000000000       0x7b
