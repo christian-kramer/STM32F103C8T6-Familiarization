@@ -102,7 +102,7 @@ Awesome! Both "Steering" and "Button 1" work great!
 
 ![Interface](https://i.imgur.com/KuqTbTO.jpg)
 
-Here's the interface I came up with, for the button and steering axis. The 1µF/100nF capacitors and resistor on the potentiometer help to filter the noise going to the ADC.
+Here's the interface I came up with, for the button and steering axis. The 1µF/100nF capacitors and 3.3KΩ resistor on the potentiometer help to filter the noise going to the ADC.
 
 Let's try it in an actual game.
 
