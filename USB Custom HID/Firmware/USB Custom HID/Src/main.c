@@ -94,6 +94,7 @@ int main(void)
   MX_ADC1_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
+  uint8_t button_buffer = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -106,12 +107,19 @@ int main(void)
 		kek[1] = (rand() % 256) - 1;
 		*/
 	    HAL_ADC_Start(&hadc1);
-	    	HAL_ADC_PollForConversion(&hadc1, 100);
-            uint16_t adcvalue = HAL_ADC_GetValue(&hadc1);
-			uint8_t kek[2];
-			memcpy(kek, (char*)&adcvalue,sizeof(uint16_t));
-			USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, kek, 2);
-	    HAL_ADC_Stop(&hadc1);
+		HAL_ADC_PollForConversion(&hadc1, 100);
+		uint16_t adcvalue = HAL_ADC_GetValue(&hadc1);
+		uint8_t kek[2];
+		memcpy(kek, (char*)&adcvalue,sizeof(uint16_t));
+
+
+		USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, kek, 2);
+
+		button_buffer = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1);
+		for (int i = 0; i < 8; i++)
+		{
+			USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, &button_buffer, 1);
+		}
 
 	    /*
 		for (uint16_t i = 0; i < 4095; i++)
@@ -234,11 +242,18 @@ static void MX_ADC1_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /*Configure GPIO pin : PA1 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 }
 
